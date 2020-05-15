@@ -3,6 +3,7 @@ package com.vladmihalcea.hibernate.type.range.guava;
 import com.google.common.collect.BoundType;
 import com.google.common.collect.Range;
 import com.vladmihalcea.hibernate.type.ImmutableType;
+import com.vladmihalcea.hibernate.type.util.Configuration;
 import com.vladmihalcea.hibernate.type.util.ReflectionUtils;
 import org.hibernate.annotations.common.reflection.XProperty;
 import org.hibernate.annotations.common.reflection.java.JavaXMember;
@@ -67,6 +68,10 @@ public class PostgreSQLGuavaRangeType extends ImmutableType<Range> implements Dy
 
     public PostgreSQLGuavaRangeType() {
         super(Range.class);
+    }
+
+    public PostgreSQLGuavaRangeType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(Range.class, new Configuration(typeBootstrapContext.getConfigurationSettings()));
     }
 
     @Override

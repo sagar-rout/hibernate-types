@@ -31,6 +31,14 @@ public class ZoneIdType extends AbstractHibernateType<ZoneId> {
         );
     }
 
+    public ZoneIdType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(
+            VarcharTypeDescriptor.INSTANCE,
+            ZoneIdTypeDescriptor.INSTANCE,
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     @Override
     public String getName() {
         return "zone-id";

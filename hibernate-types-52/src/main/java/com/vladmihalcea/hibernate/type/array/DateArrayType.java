@@ -39,6 +39,12 @@ public class DateArrayType extends AbstractArrayType<Date[]> {
         setParameterValues(parameters);
     }
 
+    public DateArrayType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "date-array";
     }

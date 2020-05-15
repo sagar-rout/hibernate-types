@@ -75,6 +75,10 @@ public class JsonBinaryType
         );
     }
 
+    public JsonBinaryType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(new Configuration(typeBootstrapContext.getConfigurationSettings()));
+    }
+
     public String getName() {
         return "jsonb";
     }

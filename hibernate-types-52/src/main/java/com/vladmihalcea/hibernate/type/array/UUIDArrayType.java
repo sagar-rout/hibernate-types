@@ -40,6 +40,12 @@ public class UUIDArrayType extends AbstractArrayType<UUID[]> {
         setParameterValues(parameters);
     }
 
+    public UUIDArrayType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "uuid-array";
     }

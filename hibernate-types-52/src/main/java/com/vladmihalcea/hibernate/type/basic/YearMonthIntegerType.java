@@ -34,6 +34,14 @@ public class YearMonthIntegerType
         );
     }
 
+    public YearMonthIntegerType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(
+            IntegerTypeDescriptor.INSTANCE,
+            YearMonthTypeDescriptor.INSTANCE,
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "yearmonth-int";
     }

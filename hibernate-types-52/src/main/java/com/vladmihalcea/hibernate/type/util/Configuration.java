@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 import java.util.Properties;
 import java.util.function.Supplier;
 
@@ -54,6 +55,15 @@ public class Configuration {
 
     public Configuration() {
         load();
+
+        if(ReflectionUtils.getClassOrNull("io.hypersistence.optimizer.core.License$Signature") == null) {
+            printBanner();
+        }
+    }
+
+    public Configuration(Map<String, Object> settings) {
+        load();
+        properties.putAll(settings);
 
         if(ReflectionUtils.getClassOrNull("io.hypersistence.optimizer.core.License$Signature") == null) {
             printBanner();

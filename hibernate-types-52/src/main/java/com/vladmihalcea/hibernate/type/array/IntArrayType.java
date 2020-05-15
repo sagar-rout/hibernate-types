@@ -38,6 +38,12 @@ public class IntArrayType extends AbstractArrayType<int[]> {
         setParameterValues(parameters);
     }
 
+    public IntArrayType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "int-array";
     }

@@ -41,6 +41,12 @@ public class DoubleArrayType extends AbstractArrayType<double[]> {
         setParameterValues(parameters);
     }
 
+    public DoubleArrayType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     @Override
     public String getName() {
         return "double-array";

@@ -74,6 +74,10 @@ public class JsonBlobType extends AbstractHibernateType<Object> implements Dynam
         );
     }
 
+    public JsonBlobType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(new Configuration(typeBootstrapContext.getConfigurationSettings()));
+    }
+
     public String getName() {
         return "jsonb-lob";
     }

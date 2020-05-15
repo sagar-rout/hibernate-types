@@ -1,6 +1,7 @@
 package com.vladmihalcea.hibernate.type.basic;
 
 import com.vladmihalcea.hibernate.type.ImmutableType;
+import com.vladmihalcea.hibernate.type.util.Configuration;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 
 import java.sql.PreparedStatement;
@@ -20,6 +21,10 @@ public class PostgreSQLCITextType extends ImmutableType<String> {
 
     public PostgreSQLCITextType() {
         super(String.class);
+    }
+
+    public PostgreSQLCITextType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(String.class, new Configuration(typeBootstrapContext.getConfigurationSettings()));
     }
 
     @Override

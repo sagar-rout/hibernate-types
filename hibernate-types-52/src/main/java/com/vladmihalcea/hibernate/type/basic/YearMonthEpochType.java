@@ -33,6 +33,14 @@ public class YearMonthEpochType
         );
     }
 
+    public YearMonthEpochType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(
+            SmallIntTypeDescriptor.INSTANCE,
+            YearMonthEpochTypeDescriptor.INSTANCE,
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "yearmonth-epoch";
     }

@@ -49,6 +49,12 @@ public class EnumArrayType extends AbstractArrayType<Enum[]> {
         setParameterValues(parameters);
     }
 
+    public EnumArrayType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return name;
     }

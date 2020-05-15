@@ -1,6 +1,7 @@
 package com.vladmihalcea.hibernate.type.basic;
 
 import com.vladmihalcea.hibernate.type.ImmutableType;
+import com.vladmihalcea.hibernate.type.util.Configuration;
 import org.hibernate.HibernateException;
 import org.hibernate.MappingException;
 import org.hibernate.engine.jdbc.Size;
@@ -30,6 +31,10 @@ public class NullableCharacterType extends ImmutableType<Character> {
 
     public NullableCharacterType() {
         super(Character.class);
+    }
+
+    public NullableCharacterType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(Character.class, new Configuration(typeBootstrapContext.getConfigurationSettings()));
     }
 
     @Override

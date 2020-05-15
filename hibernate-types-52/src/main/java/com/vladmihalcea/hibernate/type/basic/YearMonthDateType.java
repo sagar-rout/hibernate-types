@@ -34,6 +34,14 @@ public class YearMonthDateType
         );
     }
 
+    public YearMonthDateType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(
+            DateTypeDescriptor.INSTANCE,
+            YearMonthTypeDescriptor.INSTANCE,
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "yearmonth-date";
     }

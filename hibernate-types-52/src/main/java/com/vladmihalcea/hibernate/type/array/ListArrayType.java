@@ -27,6 +27,12 @@ public class ListArrayType extends AbstractArrayType<Object> {
         );
     }
 
+    public ListArrayType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "list-array";
     }

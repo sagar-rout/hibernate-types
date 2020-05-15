@@ -49,6 +49,10 @@ public class JsonNodeBinaryType extends AbstractHibernateType<JsonNode> {
         );
     }
 
+    public JsonNodeBinaryType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(new Configuration(typeBootstrapContext.getConfigurationSettings()));
+    }
+
     public String getName() {
         return "jsonb-node";
     }

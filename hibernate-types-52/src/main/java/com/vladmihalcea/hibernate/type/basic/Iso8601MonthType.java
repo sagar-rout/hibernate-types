@@ -33,6 +33,14 @@ public class Iso8601MonthType extends AbstractHibernateType<Month> {
         );
     }
 
+    public Iso8601MonthType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(
+            IntegerTypeDescriptor.INSTANCE,
+            Iso8601MonthMonthTypeDescriptor.INSTANCE,
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     @Override
     public String getName() {
         return "month";

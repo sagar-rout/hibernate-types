@@ -48,6 +48,10 @@ public class JsonNodeStringType extends AbstractHibernateType<JsonNode> {
         );
     }
 
+    public JsonNodeStringType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(new Configuration(typeBootstrapContext.getConfigurationSettings()));
+    }
+
     @Override
     public String getName() {
         return "jsonb-node";

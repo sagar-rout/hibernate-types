@@ -40,6 +40,12 @@ public class LongArrayType extends AbstractArrayType<long[]> {
         setParameterValues(parameters);
     }
 
+    public LongArrayType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     @Override
     public String getName() {
         return "long-array";

@@ -40,6 +40,10 @@ public class PostgreSQLEnumType extends org.hibernate.type.EnumType {
         this.configuration = configuration;
     }
 
+    public PostgreSQLEnumType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(new Configuration(typeBootstrapContext.getConfigurationSettings()));
+    }
+
     /**
      * Initialization constructor taking the {@link Class}.
      *

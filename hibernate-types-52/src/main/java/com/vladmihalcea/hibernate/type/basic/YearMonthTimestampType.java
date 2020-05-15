@@ -34,6 +34,14 @@ public class YearMonthTimestampType
         );
     }
 
+    public YearMonthTimestampType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(
+            TimestampTypeDescriptor.INSTANCE,
+            YearMonthTypeDescriptor.INSTANCE,
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "yearmonth-timestamp";
     }

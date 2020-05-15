@@ -1,6 +1,7 @@
 package com.vladmihalcea.hibernate.type.interval;
 
 import com.vladmihalcea.hibernate.type.ImmutableType;
+import com.vladmihalcea.hibernate.type.util.Configuration;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.postgresql.util.PGInterval;
 
@@ -26,6 +27,10 @@ public class PostgreSQLIntervalType extends ImmutableType<Duration> {
 
     public PostgreSQLIntervalType() {
         super(Duration.class);
+    }
+
+    public PostgreSQLIntervalType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(Duration.class, new Configuration(typeBootstrapContext.getConfigurationSettings()));
     }
 
     @Override

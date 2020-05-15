@@ -78,6 +78,10 @@ public class JsonStringType extends AbstractHibernateType<Object> implements Dyn
         );
     }
 
+    public JsonStringType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(new Configuration(typeBootstrapContext.getConfigurationSettings()));
+    }
+
     @Override
     public String getName() {
         return "json";

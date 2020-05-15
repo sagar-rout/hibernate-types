@@ -39,6 +39,12 @@ public class TimestampArrayType extends AbstractArrayType<Date[]> {
         setParameterValues(parameters);
     }
 
+    public TimestampArrayType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "timestamp-array";
     }

@@ -34,6 +34,14 @@ public class YearType
         );
     }
 
+    public YearType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(
+            SmallIntTypeDescriptor.INSTANCE,
+            YearTypeDescriptor.INSTANCE,
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "year";
     }

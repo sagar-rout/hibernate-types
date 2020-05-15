@@ -1,6 +1,7 @@
 package com.vladmihalcea.hibernate.type.range;
 
 import com.vladmihalcea.hibernate.type.ImmutableType;
+import com.vladmihalcea.hibernate.type.util.Configuration;
 import com.vladmihalcea.hibernate.type.util.ReflectionUtils;
 import org.hibernate.annotations.common.reflection.XProperty;
 import org.hibernate.annotations.common.reflection.java.JavaXMember;
@@ -49,6 +50,10 @@ public class PostgreSQLRangeType extends ImmutableType<Range> implements Dynamic
 
     public PostgreSQLRangeType() {
         super(Range.class);
+    }
+
+    public PostgreSQLRangeType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(Range.class, new Configuration(typeBootstrapContext.getConfigurationSettings()));
     }
 
     @Override

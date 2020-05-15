@@ -1,6 +1,7 @@
 package com.vladmihalcea.hibernate.type.interval;
 
 import com.vladmihalcea.hibernate.type.ImmutableType;
+import com.vladmihalcea.hibernate.type.util.Configuration;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 
 import java.sql.PreparedStatement;
@@ -25,6 +26,10 @@ public class OracleIntervalDayToSecondType extends ImmutableType<Duration> {
 
     public OracleIntervalDayToSecondType() {
         super(Duration.class);
+    }
+
+    public OracleIntervalDayToSecondType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        super(Duration.class, new Configuration(typeBootstrapContext.getConfigurationSettings()));
     }
 
     private static final int SQL_COLUMN_TYPE = -104;

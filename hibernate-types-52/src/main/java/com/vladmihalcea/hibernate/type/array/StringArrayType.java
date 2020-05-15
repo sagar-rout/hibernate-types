@@ -39,6 +39,12 @@ public class StringArrayType extends AbstractArrayType<String[]> {
         setParameterValues(parameters);
     }
 
+    public StringArrayType(org.hibernate.type.TypeFactory typeBootstrapContext) {
+        this(
+            new Configuration(typeBootstrapContext.getConfigurationSettings())
+        );
+    }
+
     public String getName() {
         return "string-array";
     }
